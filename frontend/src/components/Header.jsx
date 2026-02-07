@@ -8,13 +8,14 @@ export default function Header() {
     <>
       <header className="bg-black text-yellow-400 p-4 flex items-center justify-between">
         
-        {/* Hamburger Icon */}
-        <button
-          className="text-yellow-400 text-3xl md:hidden"
-          onClick={() => setMenuOpen(true)}
-        >
-          ☰
-        </button>
+        {/* Hamburger Icon — visible on ALL screen sizes */}
+<button
+  className="text-white text-3xl"
+  onClick={() => setMenuOpen(true)}
+>
+  ☰
+</button>
+
 
         {/* Website Title */}
         <h1 className="text-xl font-bold mx-auto md:mx-0">
