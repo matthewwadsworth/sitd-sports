@@ -36,7 +36,13 @@ export default function App() {
         />
 
         {/* Category Routes */}
-        <Route path="/category/:catName" element={<CategoryPage />} />
+        
+
+<Route path="/category/MLB" element={<CategoryPage category="MLB" />} />
+<Route path="/category/NFL" element={<CategoryPage category="NFL" />} />
+<Route path="/category/NHL" element={<CategoryPage category="NHL" />} />
+<Route path="/category/CFB" element={<CategoryPage category="CFB" />} />
+<Route path="/category/Reviews" element={<CategoryPage category="Reviews" />} />
       </Routes>
 
       <Footer />
