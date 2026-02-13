@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import ArticleCard from "./components/ArticleCard";
 import Footer from "./components/Footer";
+
 import CategoryPage from "./pages/CategoryPage";
+import AdminPage from "./pages/AdminPage";   // ✅ ADD THIS
 
 export default function App() {
   const [articles, setArticles] = useState([]);
@@ -24,6 +27,7 @@ export default function App() {
       <SearchBar search={search} setSearch={setSearch} />
 
       <Routes>
+        {/* Homepage */}
         <Route
           path="/"
           element={
@@ -36,16 +40,18 @@ export default function App() {
         />
 
         {/* Category Routes */}
-        
+        <Route path="/category/MLB" element={<CategoryPage category="MLB" />} />
+        <Route path="/category/NFL" element={<CategoryPage category="NFL" />} />
+        <Route path="/category/NHL" element={<CategoryPage category="NHL" />} />
+        <Route path="/category/CFB" element={<CategoryPage category="CFB" />} />
+        <Route path="/category/Reviews" element={<CategoryPage category="Reviews" />} />
 
-<Route path="/category/MLB" element={<CategoryPage category="MLB" />} />
-<Route path="/category/NFL" element={<CategoryPage category="NFL" />} />
-<Route path="/category/NHL" element={<CategoryPage category="NHL" />} />
-<Route path="/category/CFB" element={<CategoryPage category="CFB" />} />
-<Route path="/category/Reviews" element={<CategoryPage category="Reviews" />} />
+        {/* ✅ ADMIN ROUTE (THIS FIXES YOUR ISSUE) */}
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
 
       <Footer />
     </Router>
   );
 }
+
